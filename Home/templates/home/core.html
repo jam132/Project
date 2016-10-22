@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Doc surgery</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'personal/css/bootstrap.min.css' %}" type = "text/css"/>
+  <link rel="stylesheet" href="{% static 'personal/css/core.css' %}" type = "text/css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+<body class="body">
+
+	<div class="page-header">
+		<div style="margin-top:-50px">
+			<center>
+			<h1 >Medical Facility</h1>
+			<p style="font-family:sans-serif">We are really good</p>
+			<center>
+		</div>
+		<div class="input-group" style="padding-right:25px">
+			<input type="text" class="form-control" placeholder="Search...">
+			<span class="input-group-btn">
+			<button class="btn btn-default" type="button">
+				<span class="glyphicon glyphicon-search"></span>
+			</button>
+			</span>
+        </div>
+		<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src= "{% static 'personal/img/NHS.jpg' %}" alt ="NHS" style="max-width:65px; max-height:25px; margin-top:0px; margin-left:20px"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-center">
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="#">DOCTORS & STAFF</a></li>
+                    <li><a href="#">APPOINTMENTS</a></li>
+                    <li><a href="#">PRESCRIPTIONS</a></li>
+                    <li><a href="#">SERVICES PROVIDED</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+			  </ul>
+			  <ul class = "nav navbar-nav navbar-right">
+                  <li class="{% block register_active %}{% endblock %}"><a href="{% url 'login:register' %}"><span class="glyphicon glyphicon-new-window"></span> REGISTER</a></li>
+                  <li class="{% block login_active %}{% endblock %}"><a href="{% url 'login:login_user' %}"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+			  </ul>
+            </div>
+        </div>
+    </nav>
+	</div>
+		 <div class="col-sm-3 sidenav">
+		   <h4>Key Info</h4>
+		   <ul class="nav nav-pills nav-stacked">
+			<li><a href="/homevisits"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Home Visits</a></li>
+			<li><a href="/outofhours"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Out of Hours</a></li>
+			<li><a href="/chaperones"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Chaperones</a></li>
+			<li><a href="/leaflets"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Leaflets</a></li>
+			<li><a href="/newpatients"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>New patients</a></li>
+			<li><a href="/vaccines"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Vaccines</a></li>
+			<li><a href="/carers"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Carers</a></li>
+			<li><a href="/candc"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Comments & Complaints</a></li>
+			<li><a href="/equalopps"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Equal Opportunities</a></li>
+			<li><a href="/datapro"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>Data Protection</a></li>
+			<li><a href="/nhscon"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>NHS Constitution</a></li>
+            <li id="noticeboard">{% include 'home/notices.html' %}</li>
+		  </ul>
+		 </div>
+		<div class="col-sm-9">
+			<br><br>
+			{% block content %}
+			{% endblock %}
+		</div>
+		</div>
+	</div>
+
+	<footer class="container-fluid">
+		<div class="container text-center">
+		  <h3>Our Partners</h3>
+		  <br>
+		  <div class="row" style="margin-left:275px">
+			<div class="col-sm-2">
+			  <img src= "{% static 'personal/img/nhs_111.jpg' %}" class="img-responsive" style="width:150px; height:80px" alt="NHS 111">
+			</div>
+			<div class="col-sm-2">
+			  <img src= "{% static 'personal/img/DOH.gif' %}" class="img-responsive" style="width:150px; height:80px" alt="DOH">
+			</div>
+			<div class="col-sm-2">
+			  <img src= "{% static 'personal/img/nhschoices.gif' %}" class="img-responsive" style="width:150px; height:80px" alt="NHS Choices">
+			</div>
+			<div class="col-sm-2">
+			  <img src= "{% static 'personal/img/counselling.gif' %}" class="img-responsive" style="width:150px; height:80px" alt="Counselling service">
+			</div>
+		  </div>
+		</div><br>
+	</footer>
+
+</body>
+</html>

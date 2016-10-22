@@ -1,0 +1,28 @@
+.carousel-inner img {
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%); 
+    width: 100%;
+    margin:auto;
+	max-height:400px
+}
+#myCarousel{
+	margin-top:-14px;
+}
+.carousel-caption h3 {
+    color: #fff;
+}
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+.contact{
+	position:relative;
+	display:inline-block;
+	width:30%;
+}
+.nums{
+	position:relative;
+	display:inline;
+	width:10%;
+}

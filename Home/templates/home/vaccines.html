@@ -1,0 +1,97 @@
+{% extends "home/core.html" %}
+
+{% block content %}
+{%load staticfiles%}
+
+<h1 style = "color:#41A9B1; margin-top:-20px;">Vaccines</h1>
+<hr style="border:dotted 1px #C8C8C8">
+
+<h3><b>Children's Immunisation Schedule</b></h3>
+<p><b style = "font-size:18px">At 2 Months</b><br>
+1st Diphtheria, tetanus, pertussis (whooping cough), polio and 
+haemophilus influenzae type b <br>
+(Hib)<br>
+Pneumococcal<br>
+Rotavirus</p>
+
+<p><b style = "font-size:18px">At 3 Months</b><br>
+2nd Diphtheria, tetanus, pertussis, polio and Hib<br>
+Meningococcal group C (MenC)<br>
+Rotavirus</p>
+
+<p><b style = "font-size:18px">At 4 Months</b><br>
+3rd Diphtheria, tetanus, pertussis, polio and Hib<br>
+Pneumococcal</p>
+
+<p><b style = "font-size:18px">At 12-13 Months</b><br>
+Hib/MenC<br>
+Pneumococcal<br>
+1st Measles, mumps and rubella (German Measles) – MMR</p>
+
+<p><b style = "font-size:18px">At 3 years 4 months to 5 years</b><br>
+Diphtheria, tetanus, pertussis and polio<br>
+2nd MMR</p>
+
+<p><b style = "font-size:18px">Girls aged 12 to 13 years</b><br>
+Cervical cancer caused by human papillomavirus types 16 and 18 and 
+genital warts caused by <br>
+types 6 and 11 (HPV)</p>
+
+<p><b style = "font-size:18px">At around 14 years</b><br>
+Tetanus, diphtheria, and polio<br>
+MenC</p>
+
+<p>Immunisations shown above for girls aged 12-13 yrs and 
+boosters for all children at around 14 yrs of age are normally 
+offered within the school immunisation programme.</p>
+
+<p>Re: <a title="BCG" data-toggle="popover" data-trigger="hover" data-content="Bacillus Calmette–Guérin vaccination">BCG</a>
+Vaccination (for protection against Tuberculosis) - 
+<a title="BCG" data-toggle="popover" data-trigger="hover" data-content="Bacillus Calmette–Guérin vaccination">BCG</a> vaccination 
+is no longer part of the routine school vaccination
+programme, instead <a title="BCG" data-toggle="popover" data-trigger="hover" data-content="Bacillus Calmette–Guérin vaccination">BCG</a>
+vaccine will be offered and targeted only to those considered to be in a high risk group.
+<p>If your children have missed any of their immunisations, the practice nurse will be happy to discuss this with you 
+and review how to ensure your child is fully protected. </p>
+
+<p><b style = "font-size:18px">Annual Flu Vaccine</b><br>
+These are available from October each year</p>
+
+<p>Flu vaccination by injection, commonly known as the "flu jab" is available every year on 
+the NHS to protect adults (and some children) at risk of flu and its complications.<br>
+Flu can be unpleasant, but if you are otherwise healthy it will usually clear up on its own within a week.<br>
+However, flu can be more severe in certain people, such as:</p>
+<ul>
+	<li>anyone over the age of 65</li>
+	<li>pregnant women</li>
+	<li>children and adults with an underlying health condition (particularly long-term heart or respiratory disease)</li>
+	<li>children and adults with weakened immune systems</li>
+</ul>
+
+<p>Anyone in these risk groups is more likely to develop potentially serious complications of flu, such as pneumonia 
+(a lung infection), so it's recommended that they have a flu vaccine every year to protect them. </p>
+<p>The flu vaccine is given free on the NHS as an annual injection to:</p>
+<ul>
+	<li>adults over the age of 18 at risk of flu (including everyone over 65)</li>
+	<li>children aged six months to two years at risk of flu</li>
+</ul>
+
+<p><b style = "font-size:18px">Shingles</b><br>
+A vaccine to prevent shingles, a common, painful skin disease is available on the NHS to certain people in their 70s.</p>
+<p>The shingles vaccine is given as a single injection for people aged 70, 78 or 79. Unlike the flu jab, you'll only need 
+to have the vaccination once and you can have it at any time of the year.</p>
+
+<p><b style = "font-size:18px">Whooping Cough Vaccine for Pregnant Ladies</b><br>
+Pregnant women can safely help protect their babies by getting vaccinated – ideally when they are 
+28-32 weeks pregnant, although they may be given the vaccine up to 38 weeks of pregnancy. </p>
+
+<p><b style = "font-size:18px">Pneumococcal Vaccine</b><br>
+This is given to people aged 65 and over, and to people at high risk due to long term health conditions</p>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+</script>
+<hr>
+{% endblock %}

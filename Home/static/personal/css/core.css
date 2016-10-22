@@ -1,0 +1,37 @@
+.page-header{
+	padding-top:75px;
+	padding-bottom:50px;
+	padding-left:50px;
+	margin-top:55px;
+	background-color:white;
+	color:#41A9B1;
+}
+.navbar {
+	background-color:#f1f1f1;
+	height:55px;	
+}
+.navbar-nav li a:hover {
+    color:black;
+}
+.row.content {
+	height: auto;
+	padding-left:10px;
+	padding-right:10px;
+}
+.sidenav {
+	background-color: #f1f1f1;
+    height: 100%;
+	margin-top:25px;
+}
+
+@media screen and (max-width: 767px) {
+    .sidenav {
+		height: auto;
+        padding: 15px;
+    }
+    .row.content {height: auto;}
+}
+
+#noticeboard{
+    margin-top:25px;
+}

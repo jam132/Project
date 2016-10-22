@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}View Bookings{% endblock %}
+{% load staticfiles %}
+{% block extrastyle %}
+	<!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/jquery-ui.css" type="text/css">
+    <script src="{{ STATIC_URL }}js/jquery-1.10.2.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-ui.js"></script>
+ -->
+    <script type=text/javascript>
+		$(function() {
+			$( "#id_date" ).datepicker({
+	            dateFormat: 'yy-mm-dd',
+	            minDate: 0,
+	            maxDate: "+3M"
+			});
+		});
+
+	    $(function() {
+			$( "#id_hall" ).selectmenu()
+			.selectmenu( "menuWidget" )
+			.addClass( "overflow" );
+			});
+
+	</script>
+{% endblock %}
+
+{% block content %}
+	<div class="block-book container" style="background-color: transparent;">
+		<h1>View Bookings</h1><br><br>
+		<form method="POST" action="">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<input type='submit' value='View Bookings' class='round-button' />
+		</form>
+ 	</div>
+{% endblock %}

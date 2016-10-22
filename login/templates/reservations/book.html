@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Book appointment{% endblock %}
+{% load staticfiles %}
+{% block extrastyle %}
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/jquery-ui.css" type="text/css">
+    <script src="{{ STATIC_URL }}js/jquery-1.10.2.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery-ui.js"></script>
+
+    <script type=text/javascript>
+		$(function() {
+			$( "#id_date" ).datepicker({
+				// changeMonth: true, //this option for allowing user to select month
+				// changeYear:  true, //this option for allowing user to select from year range
+	            dateFormat: 'yy-mm-dd',
+	            minDate: 0,
+	            maxDate: "+3M"
+			});
+		});
+
+	    $(function() {
+			$( "#id_doc" ).selectmenu()
+			.selectmenu( "menuWidget" )
+			.addClass( "overflow" );
+			});
+
+
+		$(function() {
+			$( "#id_start_time" ).timepicker({
+				'minTime': '8:',
+				'maxTime': '11:',
+				'timeFormat': 'h:i',
+				'step': 10
+			});
+		})
+
+	</script>
+{% endblock %}
+
+{% block content %}
+	<div class="block-book container" style="background-color: transparent;">
+		<h1>Book appointment</h1>
+		<form method="POST" action=""> {% csrf_token %}
+			{{ form.as_p }}
+			<input type='submit' value='Proceed' class='round-button' />
+		</form>
+	</div>
+{% endblock %}

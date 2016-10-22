@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Booking System{% endblock %}
+{% block content %}
+<div class="block-home">
+	<h1 class="header hcontent"> Welcome to Booking System</h1>
+	<p class="tagline hcontent"> Everything is getting online... but still booking halls manually??? Here is the solution.
+	</p>
+
+	<p>
+		<div class="buttons">
+			<a href="{% url 'view' %}" class="round-btn-view">View Bookings</a>
+			<a href="{% url 'book' %}" class="round-btn-book">Book Hall</a>
+			<a href="{% url 'cancel' %}" class="round-btn-cancel">Cancellation</a>
+			<a href="{% url 'reschedule' %}" class="round-btn-reschedule">Reschedule</a>
+		</div>
+	</p>
+</div>
+{% endblock %}

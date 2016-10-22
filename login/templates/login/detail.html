@@ -1,0 +1,25 @@
+{% extends 'login/base.html' %}
+{% block title %}{{ profile }}{% endblock %}
+{% block body %}
+<div class="container-fluid songs-container">
+
+    <div class="row">
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a href="{% url 'login:detail' user.id %}">
+                        {% if profile.profile_pic %}
+                            <img src="{{ profile.profile_pic.url }}" class="img-responsive">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h1>{{ profile.Firstname }} <small>{{ profile.Surname }}</small></h1>
+                    <h2>{{ profile.TelephoneNumber }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

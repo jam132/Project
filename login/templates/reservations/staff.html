@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Staff{% endblock %}
+{% block content %}
+	<div class="block-book container" style="background-color: transparent;">
+		<h1>Staff</h1>
+		<br><br>
+	 	<div>
+	 		<form method="POST" action="/staffresponse/" name="staffform">
+	 			{% csrf_token %}
+				<table border="2" align="center">
+				 	<tr>
+				 		<th>Book Event</th>
+				 		<th>Cancel Event</th>
+				 		<th>Name</th>
+				 		<th>Event Name</th>
+				 		<th>Venue</th>
+				 		<th>Date</th>
+				 		<th>Start Time</th>
+				 		<th>End Time</th>
+				 		<th>Booking Status</th>
+				 	</tr>
+				 	{% for value in staff %}
+				 	<tr>
+				 		<td> <input type="radio" name="book" id="book{{ forloop.counter }}" value="{{ value.id }}" /></td>
+				 		<td> <input type="radio" name="cancel" id="cancel{{ forloop.counter }}" value="{{ value.id }}" /></td>
+				 		<td>{{ value }}</td> 
+				 		<td>{{ value.name }}</td>
+				 		<td>{{ value.hall }}</td>
+				 		<td>{{ value.date }}</td>
+				 		<td>{{ value.start_time }}</td>
+				 		<td>{{ value.end_time }}</td>
+				 		<td>{{ value.status }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+				<br><br>
+				<input type="submit" value="Update Bookings" class='round-button' />
+				<input type="reset" value="Reset" class='round-btn-cancel' />
+			</form>
+	 	</div>
+	</div>
+{% endblock %}

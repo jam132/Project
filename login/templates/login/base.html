@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Welcome {{ user.username }}{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'login/style.css' %}"/>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{% static 'login/js/main.js' %}"></script>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <style>
+        html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+        .w3-sidenav a,.w3-sidenav h4 {font-weight:bold}
+    </style>
+</head>
+
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Sidenav/menu -->
+<nav class="w3-sidenav w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidenav"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <img src="{% static 'personal/img/babypic.jpg' %}" style="width:45%; height:75px" class="w3-round"><br><br>
+	{% if user.is_superuser %}
+		<h4 class="w3-padding-0"><b>SUPERUSER</b></h4>
+	{% elif user.is_staff %}
+		<h4 class="w3-padding-0"><b>STAFF</b></h4>
+	{% else %}
+		<h4 class="w3-padding-0"><b>USER</b></h4>
+	{% endif %}
+
+
+
+  </div>
+  <a href="{% url 'login:index' %}" class="w3-padding">Home</a>
+  <a href="{% url 'login:detail' user.id %}" class="w3-padding">PROFILE</a>
+    {% if user.is_superuser %}
+  <a href="{% url 'login:view' %}" class="w3-padding">APPOINTMENTS</a>
+    {% elif user.is_staff and not user.is_superuser %}
+  <a href="{% url 'login:staff' %}" class="w3-padding">APPOINTMENTS</a>
+    {% else %}
+  <a href="{% url 'login:book' %}" class="w3-padding">APPOINTMENTS</a>
+    {% endif %}
+  {% if user.is_superuser or user.is_staff %}
+	<a href="{% url 'posts:list' %}" class="w3-padding">FEEDBACK</a>
+  {% else %}
+    <a href="{% url 'posts:create' %}" class="w3-padding">FEEDBACK</a>
+  {% endif %}
+  {% if profile.create %}
+    <a href="{% url 'login:update_profile' user.id %}" class="w3-padding">UPDATE PROFILE</a>
+  {% else %}
+    <a href="{% url 'login:create_profile' %}" class="w3-padding">SETTINGS</a>
+  {% endif %}
+
+  <a href="{% url 'login:logout_user' %}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> LOGOUT</a>
+</nav>
+
+<!-- Overlay effect when opening sidenav on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+<header class="w3-container">
+    <a href="#"><img src="img_avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-opennav w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <h1><b>Welcome {{ user.username }}</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+    </div>
+</header>
+        {% block body %}
+        {% endblock %}
+
+
+</div>
+
+<script>
+// Script to open and close sidenav
+function w3_open() {
+    document.getElementById("mySidenav").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidenav").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+
+function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+</script>
+
+</body>
+</html>
